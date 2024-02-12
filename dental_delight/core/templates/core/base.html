@@ -1,0 +1,33 @@
+{% load static %}
+
+<!doctype html>
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <script src="https://cdn.tailwindcss.com"></script>
+
+        <title>{% block title %}{% endblock %}</title>
+    </head>
+
+    <body>
+        {% include 'core/nav.html' %}
+
+        {% if messages %}
+            <div class="py-6 px-6">
+                {% for message in messages %}
+                    <div class="py-4 px-4 bg-red-300 text-white rounded-xl">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            </div>
+        {% endif %}
+
+        {% block content %}
+        {% endblock %}
+
+        {% include 'core/footer.html' %}
+    </body>
+</html>
