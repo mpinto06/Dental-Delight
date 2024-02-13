@@ -1,33 +1,42 @@
 {% load static %}
 
-<!doctype html>
-
+<!DOCTYPE html>
 <html>
     <head>
         <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">  
         <script src="https://cdn.tailwindcss.com"></script>
-
+        <link href="{% static 'fontawesomefree/css/fontawesome.css' %}" rel="stylesheet" type="text/css">
+        <link href="{% static 'fontawesomefree/css/solid.css' %}" rel="stylesheet" type="text/css">
+        
         <title>{% block title %}{% endblock %}</title>
     </head>
 
     <body>
-        {% include 'core/nav.html' %}
+        <div class="container min-h-screen {% block container_class %}{% endblock %}">
+            <nav class="py-6 px-12 flex justify-between">
+                <a href="{% url 'index' %}" class="text-3xl">Dental Delight <i class="fa-solid fa-tooth" style="color: rgb(125 211 252);"></i></a>
+                <div class="space-x-2">
+                    <a href="#" class="py-4 px-6 text-xl text-black hover:opacity-60">Log in</a>
+                    <a href="#" class="py-4 px-6 bg-emerald-500 rounded-xl text-xl text-white transition duration-300 hover:bg-emerald-300">Sign up</a>
+                </div>
+            </nav>
+            {% if messages %}
+                <div class="py-6 px-6">
+                    {% for message in messages %}
+                        <div class="py-4 px-4 bg-red-300 text-white rounded-xl">
+                            {{ message }}
+                        </div>
+                    {% endfor %}
+                </div>
+            {% endif %}
 
-        {% if messages %}
-            <div class="py-6 px-6">
-                {% for message in messages %}
-                    <div class="py-4 px-4 bg-red-300 text-white rounded-xl">
-                        {{ message }}
-                    </div>
-                {% endfor %}
-            </div>
-        {% endif %}
+            {% block content %}
+            {% endblock %}
 
-        {% block content %}
-        {% endblock %}
-
-        {% include 'core/footer.html' %}
+            <footer class="absolute bottom-0 inset-x-0 py-4 text-center">
+                <p class="text-xs">Copyright (c) 2024 Dental Delight</p>
+            </footer>
+        </div>
     </body>
 </html>

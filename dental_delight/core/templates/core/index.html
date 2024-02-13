@@ -1,7 +1,19 @@
 {% extends 'core/base.html' %}
+{% load static %}
 
 {% block title %}Dental Delight{% endblock %}
 
-{% block content %}
-Pagina
+{% block container_class%}bg-[url({% static 'images/index_background.png'%})] relative bg-center bg-cover{% endblock %}
+{% block content%}
+<div class="px-28 mt-20">
+    <div class="max-w-2xl">
+        <h1 class="text-7xl leading-normal">Productivity<br>just<span class="font-light"> one </span>click away</h1>
+        <p class="text-xl">Dental Delight offers a CRM solution to proffesional dentists to save their time and energy in managing their patients.</p>
+    </div>
+
+    <div class="mt-10">
+        <a href="#" class="py-4 px-6 bg-emerald-500 rounded-xl text-xl text-white transition duration-300 hover:bg-emerald-300">See Demo</a>
+    </div>
+</div>
+<img src="{% static 'images/index_dentist.png'%}" class="w-full xl:w-1/2 xl:absolute right-20 bottom-0">
 {% endblock %}
