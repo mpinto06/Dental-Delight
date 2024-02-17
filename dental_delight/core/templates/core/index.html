@@ -1,19 +1,34 @@
-{% extends 'core/base.html' %}
 {% load static %}
-
-{% block title %}Dental Delight{% endblock %}
-
-{% block container_class%}bg-[url({% static 'images/index_background.png'%})] relative bg-center bg-cover{% endblock %}
-{% block content%}
-<div class="px-28 mt-20">
-    <div class="max-w-2xl">
-        <h1 class="text-7xl leading-normal">Productivity<br>just<span class="font-light"> one </span>click away</h1>
-        <p class="text-xl">Dental Delight offers a CRM solution to proffesional dentists to save their time and energy in managing their patients.</p>
-    </div>
-
-    <div class="mt-10">
-        <a href="#" class="py-4 px-6 bg-emerald-500 rounded-xl text-xl text-white transition duration-300 hover:bg-emerald-300">See Demo</a>
-    </div>
-</div>
-<img src="{% static 'images/index_dentist.png'%}" class="w-full xl:w-1/2 xl:absolute right-20 bottom-0">
-{% endblock %}
+<!DOCTYPE html>
+<html>
+    <head>
+        {% include 'core/meta.html' %}
+        <title>Dental Delight</title>
+    </head>
+    <body>
+        <div class="container min-h-screen bg-[url({% static 'images/index_background.png'%})] relative bg-center bg-cover">
+            <nav class="py-6 px-12 flex justify-between">
+                <a href="{% url 'index' %}" class="text-3xl">Dental Delight <i class="fa-solid fa-tooth" style="color: rgb(125 211 252);"></i></a>
+                <div class="space-x-2">
+                    <a href="{% url 'account_login' %}" class="py-4 px-6 text-xl text-black hover:opacity-60">Log in</a>
+                    <a href="{% url 'account_signup' %}" class="py-4 px-6 bg-sky-600 rounded-xl text-xl text-white transition duration-300 hover:bg-sky-700">Sign up</a>
+                </div>
+            </nav>
+            <div class="px-28 mt-20">
+                <div class="max-w-2xl">
+                    <h1 class="text-7xl leading-normal">Productivity<br>just<span class="font-light"> one </span>click away</h1>
+                    <p class="text-xl">Dental Delight offers a CRM solution to proffesional dentists to save their time and energy in managing their patients.</p>
+                </div>
+            
+                <div class="mt-10">
+                    <a href="#" class="py-4 px-6 bg-sky-600 rounded-xl text-xl text-white transition duration-300 hover:bg-sky-800">See Demo</a>
+                </div>
+            </div>
+            <img src="{% static 'images/index_dentist.png'%}" class="w-full xl:w-1/2 xl:absolute right-20 bottom-0">
+            <footer class="absolute bottom-0 inset-x-0 py-4 text-center">
+                <p class="text-xs">Copyright (c) 2024 Dental Delight</p>
+            </footer>
+        </div>
+        
+    </body>
+</html>

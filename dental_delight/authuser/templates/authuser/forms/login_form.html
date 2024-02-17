@@ -1,0 +1,16 @@
+{% load widget_tweaks %}
+<div class="space-y-6 mb-5">
+    <div class="space-y-2">
+        {% for field in form %}
+            {% if "remember" not in field.name %}
+            <label class="block mb-2 text-sm font-light text-gray-900">{{field.label}}</label>
+            {{ field|append_attr:"class:bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg block w-full p-2.5" }}
+            {% else %}
+            <div class="flex items-center">       
+                {{ field|append_attr:"class:w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded" }}
+                <label class="ms-2 text-sm font-light text-gray-900">{{field.label}}</label>    
+            </div>
+            {% endif %}
+        {% endfor %}
+    </div>
+</div>

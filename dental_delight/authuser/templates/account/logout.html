@@ -1,0 +1,20 @@
+{% extends 'authuser/account_base.html' %}
+{% block title %}Logout{% endblock %} 
+{% block account_content %}
+<h1 class="text-xl text-gray-900 md:text-2xl">
+    Goodbye, {{ user.get_short_name }}
+</h1>
+<form method="post" action="{% url 'account_logout' %}">
+    {% csrf_token %}
+    {{ form }}
+    {% if redirect_field_value %}
+        <input type="hidden"
+            name="{{ redirect_field_name }}"
+            value="{{ redirect_field_value }}" />
+    {% endif %}
+    <button type="submit" class="mb-3 w-full text-white bg-sky-600 hover:bg-sky-700 font-medium rounded-lg text-sm px-5 py-2.5 text-center">Confirm Sign Out</button>
+    <p class="text-sm font-light text-gray-500 dark:text-gray-400">
+        Don't want to leave? <a href="{% url 'home' %}" class="font-medium text-primary-600 hover:underline">Return home here</a>
+    </p>
+</form>
+{% endblock %}

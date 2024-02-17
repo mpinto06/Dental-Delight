@@ -1,0 +1,69 @@
+{% extends 'core/home_base.html' %}
+{% block title %}{{ user.get_short_name }}'s Page{% endblock %}
+{% block content %}
+<div class="p-5 h-screen bg-gray-100">
+    {% if messages %}
+        <div id="messages" class="space-y-2 mb-2">
+            {% for message in messages %}
+                <div  class="relative bg-emerald-50 border border-emerald-300 text-emerald-800 sm:text-sm rounded-lg block w-1/3 p-2.5">
+                    {{ message }} <button  class="absolute right-4 message_button"><i class="fa-solid fa-x fa-2xs"></i></button>
+                </div>
+            {% endfor %}
+        </div>
+    {% endif %}
+    <h1 class="block text-xl mb-2">Your orders</h1>
+    <div class="overflow-auto rounded-lg shadow hidden md:block">
+      <table class="w-full">
+        <thead class="bg-gray-50 border-b-2 border-gray-200">
+        <tr>
+          <th class="w-20 p-3 text-sm font-semibold tracking-wide text-left">No.</th>
+          <th class="p-3 text-sm font-semibold tracking-wide text-left">Details</th>
+          <th class="w-24 p-3 text-sm font-semibold tracking-wide text-left">Status</th>
+          <th class="w-24 p-3 text-sm font-semibold tracking-wide text-left">Date</th>
+          <th class="w-32 p-3 text-sm font-semibold tracking-wide text-left">Total</th>
+        </tr>
+        </thead>
+        <tbody class="divide-y divide-gray-100">
+        <tr class="bg-white">
+          <td class="p-3 text-sm text-gray-700 whitespace-nowrap">
+            <a href="#" class="font-bold text-blue-500 hover:underline">10001</a>
+          </td>
+          <td class="p-3 text-sm text-gray-700 whitespace-nowrap">
+            Kring New Fit office chair, mesh + PU, black
+          </td>
+          <td class="p-3 text-sm text-gray-700 whitespace-nowrap">
+          <span
+            class="p-1.5 text-xs font-medium uppercase tracking-wider text-green-800 bg-green-200 rounded-lg bg-opacity-50">Delivered</span>
+          </td>
+          <td class="p-3 text-sm text-gray-700 whitespace-nowrap">16/10/2021</td>
+          <td class="p-3 text-sm text-gray-700 whitespace-nowrap">$200.00</td>
+        </tr>
+        <tr class="bg-gray-50">
+          <td class="p-3 text-sm text-gray-700 whitespace-nowrap">
+            <a href="#" class="font-bold text-blue-500 hover:underline">10002</a>
+          </td>
+          <td class="p-3 text-sm text-gray-700 whitespace-nowrap">Kring New Fit office chair, mesh + PU, black</td>
+          <td class="p-3 text-sm text-gray-700 whitespace-nowrap">
+          <span
+            class="p-1.5 text-xs font-medium uppercase tracking-wider text-yellow-800 bg-yellow-200 rounded-lg bg-opacity-50">Shipped</span>
+          </td>
+          <td class="p-3 text-sm text-gray-700 whitespace-nowrap">16/10/2021</td>
+          <td class="p-3 text-sm text-gray-700 whitespace-nowrap">$200.00</td>
+        </tr>
+        <tr class="bg-white">
+          <td class="p-3 text-sm text-gray-700 whitespace-nowrap">
+            <a href="#" class="font-bold text-blue-500 hover:underline">10002</a>
+          </td>
+          <td class="p-3 text-sm text-gray-700 whitespace-nowrap">Kring New Fit office chair, mesh + PU, black</td>
+          <td class="p-3 text-sm text-gray-700 whitespace-nowrap">
+          <span
+            class="p-1.5 text-xs font-medium uppercase tracking-wider text-gray-800 bg-gray-200 rounded-lg bg-opacity-50">Cancelled</span>
+          </td>
+          <td class="p-3 text-sm text-gray-700 whitespace-nowrap">16/10/2021</td>
+          <td class="p-3 text-sm text-gray-700 whitespace-nowrap">$200.00</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+    {% include 'authuser/messages_script.html' %}    
+{% endblock %}
