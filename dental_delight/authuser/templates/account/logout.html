@@ -12,6 +12,12 @@
             name="{{ redirect_field_name }}"
             value="{{ redirect_field_value }}" />
     {% endif %}
+    {% if form.errors %} 
+        {% include 'authuser/messages/errors.html' with form=form%}       
+    {% endif %}
+    {% if messages %}
+        {% include 'authuser/messages/messages.html' %}
+    {% endif %}
     <button type="submit" class="mb-3 w-full text-white bg-sky-600 hover:bg-sky-700 font-medium rounded-lg text-sm px-5 py-2.5 text-center">Confirm Sign Out</button>
     <p class="text-sm font-light text-gray-500 dark:text-gray-400">
         Don't want to leave? <a href="{% url 'home' %}" class="font-medium text-primary-600 hover:underline">Return home here</a>

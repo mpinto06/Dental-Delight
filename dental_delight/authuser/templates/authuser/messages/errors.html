@@ -1,0 +1,14 @@
+<div id="errors" class="space-y-2 my-2">
+    {% for field in form %}
+        {% for error in field.errors %}
+            <div class="relative bg-red-50 border border-red-300 text-red-800 sm:text-sm rounded-lg block w-full p-2.5">
+                {{ error }} <button onclick="return this.parentNode.remove();" class="absolute right-4 error_button"><i class="fa-solid fa-x fa-2xs"></i></button>
+            </div>
+        {% endfor %}
+    {% endfor %}
+    {% for error in form.non_field_errors %}
+        <div class="relative bg-red-50 border border-red-300 text-red-800 sm:text-sm rounded-lg block w-full p-2.5">
+            {{ error }} <button onclick="return this.parentNode.remove();" class="absolute right-4 error_button"><i class="fa-solid fa-x fa-2xs"></i></button>
+        </div>
+    {% endfor %}
+</div>
