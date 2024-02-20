@@ -22,6 +22,7 @@ from django.conf.urls.i18n import i18n_patterns
 urlpatterns = i18n_patterns(
     path('admin/', admin.site.urls),
     path('users/', include('authuser.urls')),
-    path('', index, name='index')
+    path("patients/", include('patients.urls')),
+    path('', index, name='index'),
 )
 

@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
     #Main apps
     'core',
+    'patients',
     #3rd party apps
     'widget_tweaks',
     'fontawesomefree',
@@ -60,7 +61,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    "allauth.account.middleware.AccountMiddleware",
+    'allauth.account.middleware.AccountMiddleware',
 ]
 
 ROOT_URLCONF = 'dental_delight.urls'

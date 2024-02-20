@@ -1,7 +1,7 @@
 from allauth.account.forms import SignupForm, password_validation, PasswordField, LoginForm
 from django import forms
 from django.utils.translation import gettext_lazy as _
- 
+
 class UserSignupForm(SignupForm):
     template_name = 'authuser/forms/signup_form.html'
     email = forms.EmailField(

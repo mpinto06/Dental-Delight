@@ -1,0 +1,71 @@
+{% extends 'core/main_base.html' %}
+{% block title %}{{ user.get_short_name }}'s Patients{% endblock %}
+{% block content %}
+<div class="flex justify-between mb-6 items-center">
+    <h1 class="text-2xl text-gray-900">
+        Patients
+    </h1>
+    <a href="{% url 'patients:add' %}" class="py-2 px-4 text-white bg-sky-600 hover:bg-sky-700 font-medium rounded-lg text-center">Add Patient</a>
+</div>
+
+
+<div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+  <table class="w-full text-sm text-left rtl:text-right text-gray-500">
+    <thead class="text-xs text-gray-700 uppercase bg-gray-50">
+      <tr>
+        <th scope="col" class="px-6 py-3">
+            Patient Name
+        </th>
+        <th scope="col" class="px-6 py-3">
+            Email
+        </th>
+        <th scope="col" class="px-6 py-3">
+            Phone Number
+        </th>
+        <th scope="col" class="px-6 py-3">
+            Citizen Number
+        </th>
+        <th scope="col" class="px-6 py-3">
+            Created At
+        </th>
+        <th scope="col" class="px-6 py-3">
+            Modified At
+        </th>
+        <th scope="col" class="px-6 py-3">
+            Action
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for patient in patients %}
+      <tr class="bg-white border-b">
+          <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
+              {{ patient.get_full_name }}
+          </th>
+          <td class="px-6 py-4">
+            {{ patient.email }}
+          </td>
+          <td class="px-6 py-4">
+            {{ patient.phone_number }}
+          </td>
+          <td class="px-6 py-4">
+            {{ patient.citizen_number }}
+          </td>
+          <td class="px-6 py-4">
+            {{ patient.created_at }}
+          </td>
+          <td class="px-6 py-4">
+            {{ patient.modified_at }}
+          </td>
+          <td class="px-6 py-4 space-x-2">
+              <a href="{% url 'patients:edit' patient.id %}" class="font-medium text-blue-600 hover:underline">Edit</a>
+              <a href="{% url 'patients:details' patient.id %}" class="font-medium text-blue-600 hover:underline">View</a>
+              <a href="{% url 'patients:details' patient.id %}" class="font-medium text-red-600 hover:underline">Delete</a>
+          </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+
+{% endblock %}

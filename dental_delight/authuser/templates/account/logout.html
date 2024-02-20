@@ -1,7 +1,7 @@
 {% extends 'authuser/account_base.html' %}
 {% block title %}Logout{% endblock %} 
 {% block account_content %}
-<h1 class="text-xl text-gray-900 md:text-2xl">
+<h1 class="text-2xl text-gray-900">
     Goodbye, {{ user.get_short_name }}
 </h1>
 <form method="post" action="{% url 'account_logout' %}">
@@ -12,15 +12,15 @@
             name="{{ redirect_field_name }}"
             value="{{ redirect_field_value }}" />
     {% endif %}
-    {% if form.errors %} 
-        {% include 'authuser/messages/errors.html' with form=form%}       
+    {% if form.errors or form.non_field_errors %} 
+        {% include 'core/messages/errors.html' %}       
     {% endif %}
     {% if messages %}
-        {% include 'authuser/messages/messages.html' %}
+        {% include 'core/messages/messages.html' %}
     {% endif %}
     <button type="submit" class="mb-3 w-full text-white bg-sky-600 hover:bg-sky-700 font-medium rounded-lg text-sm px-5 py-2.5 text-center">Confirm Sign Out</button>
-    <p class="text-sm font-light text-gray-500 dark:text-gray-400">
-        Don't want to leave? <a href="{% url 'home' %}" class="font-medium text-primary-600 hover:underline">Return home here</a>
+    <p class="text-sm font-light text-gray-500">
+        Don't want to leave? <a href="{% url 'home' %}" class="font-medium hover:underline">Return home here</a>
     </p>
 </form>
 {% endblock %}
