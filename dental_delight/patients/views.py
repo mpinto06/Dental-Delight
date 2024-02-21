@@ -59,4 +59,16 @@ def patients_edit(request, pk):
         context["form"] = form
         return render(request, "patients/patients_form.html", context)
 
+@login_required
+def patients_delete(request, pk):
+    patient = get_object_or_404(request.user.patients, pk=pk)
+    if request.method == "POST":
+        patient.delete()
+
+        messages.success(request, 'The Patient was deleted succesfully! ')
+        return redirect("patients:list")
+
+    else:
+        return render(request, "patients/patients_delete.html", {"patient": patient})
+
     

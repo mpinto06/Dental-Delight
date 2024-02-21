@@ -65,7 +65,8 @@
                     {{ patient.modified_at }}
                 </dd>
             </div>      
-            <a href= "{% url 'patients:edit' patient.id %}" class="px-5 py-2 text-white bg-sky-600 hover:bg-sky-700 font-medium text-sm rounded-lg text-center">Edit</a>
+            <a href= "{% url 'patients:edit' patient.id %}" class="ml-5 px-5 py-2 text-white bg-sky-600 hover:bg-sky-700 font-medium text-sm rounded-lg text-center">Edit</a>
+            <a href= "{% url 'patients:delete' patient.id %}" class="ml-5 px-5 py-2 text-white bg-red-600 hover:bg-red-700 font-medium text-sm rounded-lg text-center">Delete</a>
         </dl>
     </div>
 </div>
