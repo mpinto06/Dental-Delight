@@ -1,0 +1,25 @@
+{% extends 'core/main_base.html' %}
+{% load widget_tweaks %}
+{% block title %}Confirmation Delete{% endblock %}
+{% block content %}
+<div class="grid justify-items-end mb-6">
+    <a href="{% url 'dentists:list' %}" class="py-2 px-4 text-white bg-sky-600 hover:bg-sky-700 font-medium rounded-lg text-center">Return to Dentists</a>
+</div>
+
+<div class="flex items-center justify-center mx-auto ">
+    <div class="w-full bg-white rounded-lg shadow border md:mt-0 sm:max-w-md xl:p-0" >
+        <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
+            <form method="post" action="">
+                {% csrf_token %}
+                <div class="space-y-6 mb-5">
+                    <h1 class="text-2xl text-gray-900">
+                        Are you sure you want to delete {{ dentist.get_full_name }}?
+                    </h1>
+                </div>
+                <button type="submit" class="px-5 py-2 text-white bg-red-600 hover:bg-red-700 font-medium text-sm rounded-lg text-center">Confirm Delete</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
+

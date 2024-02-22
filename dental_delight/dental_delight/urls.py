@@ -23,6 +23,7 @@ urlpatterns = i18n_patterns(
     path('admin/', admin.site.urls),
     path('users/', include('authuser.urls')),
     path("patients/", include('patients.urls')),
+    path("dentists/", include('dentists.urls')),
     path('', index, name='index'),
 )
 

@@ -1,11 +1,11 @@
 {% extends 'core/main_base.html' %}
-{% block title %}{{ user.get_short_name }}'s Patients{% endblock %}
+{% block title %}{{ user.get_short_name }}'s Dentists{% endblock %}
 {% block content %}
 <div class="flex justify-between mb-6 items-center">
     <h1 class="text-2xl text-gray-900">
         Patients
     </h1>
-    <a href="{% url 'patients:add' %}" class="py-2 px-4 text-white bg-sky-600 hover:bg-sky-700 font-medium rounded-lg text-center">Add Patient</a>
+    <a href="{% url 'dentists:add' %}" class="py-2 px-4 text-white bg-sky-600 hover:bg-sky-700 font-medium rounded-lg text-center">Add Dentist</a>
 </div>
 
 
@@ -14,7 +14,7 @@
     <thead class="text-xs text-gray-700 uppercase bg-gray-50">
       <tr>
         <th scope="col" class="px-6 py-3">
-            Patient Name
+            Dentist Name
         </th>
         <th scope="col" class="px-6 py-3">
             Email
@@ -24,6 +24,9 @@
         </th>
         <th scope="col" class="px-6 py-3">
             Citizen Number
+        </th>
+        <th scope="col" class="px-6 py-3">
+            Speciality
         </th>
         <th scope="col" class="px-6 py-3">
             Created At
@@ -37,30 +40,33 @@
       </tr>
     </thead>
     <tbody>
-      {% for patient in patients %}
+      {% for dentist in dentists %}
       <tr class="bg-white border-b">
           <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
-              {{ patient.get_full_name }}
+              {{ dentist.get_full_name }}
           </th>
           <td class="px-6 py-4">
-            {{ patient.email }}
+            {{ dentist.email }}
           </td>
           <td class="px-6 py-4">
-            {{ patient.phone_number }}
+            {{ dentist.phone_number }}
           </td>
           <td class="px-6 py-4">
-            {{ patient.citizen_number }}
+            {{ dentist.citizen_number }}
           </td>
           <td class="px-6 py-4">
-            {{ patient.created_at }}
+            {{ dentist.get_speciality_display }}
           </td>
           <td class="px-6 py-4">
-            {{ patient.modified_at }}
+            {{ dentist.created_at }}
+          </td>
+          <td class="px-6 py-4">
+            {{ dentist.modified_at }}
           </td>
           <td class="px-6 py-4 space-x-2">
-              <a href="{% url 'patients:edit' patient.id %}" class="font-medium text-blue-600 hover:underline">Edit</a>
-              <a href="{% url 'patients:details' patient.id %}" class="font-medium text-blue-600 hover:underline">View</a>
-              <a href="{% url 'patients:delete' patient.id %}" class="font-medium text-red-600 hover:underline">Delete</a>
+              <a href="{% url 'dentists:edit' dentist.id %}" class="font-medium text-blue-600 hover:underline">Edit</a>
+              <a href="{% url 'dentists:details' dentist.id %}" class="font-medium text-blue-600 hover:underline">View</a>
+              <a href="{% url 'dentists:delete' dentist.id %}" class="font-medium text-red-600 hover:underline">Delete</a>
           </td>
       </tr>
       {% endfor %}

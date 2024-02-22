@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     #Main apps
     'core',
     'patients',
+    'dentists',
     #3rd party apps
     'widget_tweaks',
     'fontawesomefree',
@@ -139,7 +140,7 @@ LOCALE_PATHS = [
     BASE_DIR / 'locale/',
 ]
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'America/Caracas'
 
 USE_I18N = True
 
@@ -155,6 +156,8 @@ STATICFILES_DIRS = [
     BASE_DIR / "static",
 ]
 
+MEDIA_ROOT = BASE_DIR / 'media'
+MEDIA_URL = 'media/'
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 

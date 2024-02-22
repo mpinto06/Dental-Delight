@@ -1,5 +1,5 @@
 from django.db import models
-from .validators import only_int
+from core.validators import only_int
 from authuser.models import User
 
 class Patient(models.Model):
