@@ -45,7 +45,7 @@ def dentists_edit(request, pk):
         form = AddDentistForm(request.POST, request.FILES, instance=dentist)
 
         if form.is_valid():
-            dentist.save()
+            form.save()
 
             messages.success(request, 'The Dentist was edited successfully')
             

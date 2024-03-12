@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'core',
     'patients',
     'dentists',
+    'appointments',
     #3rd party apps
     'widget_tweaks',
     'fontawesomefree',

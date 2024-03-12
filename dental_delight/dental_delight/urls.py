@@ -24,6 +24,7 @@ urlpatterns = i18n_patterns(
     path('users/', include('authuser.urls')),
     path("patients/", include('patients.urls')),
     path("dentists/", include('dentists.urls')),
+    path("appointments/", include('appointments.urls')),
     path('', index, name='index'),
 )
 

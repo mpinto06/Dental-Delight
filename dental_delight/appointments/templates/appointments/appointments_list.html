@@ -3,9 +3,9 @@
 {% block content %}
 <div class="flex justify-between mb-6 items-center">
     <h1 class="text-2xl text-gray-900">
-        Patients
+        Appointments
     </h1>
-    <a href="{% url 'dentists:add' %}" class="py-2 px-4 text-white bg-sky-600 hover:bg-sky-700 font-medium rounded-lg text-center">Add Dentist</a>
+    <a href="{% url 'appointments:add' %}" class="py-2 px-4 text-white bg-sky-600 hover:bg-sky-700 font-medium rounded-lg text-center">Schedule Appointment</a>
 </div>
 
 
@@ -14,39 +14,27 @@
     <thead class="text-xs text-gray-700 uppercase bg-gray-50">
       <tr>
         <th scope="col" class="px-6 py-3">
-            Dentist Name
+          Patient
         </th>
         <th scope="col" class="px-6 py-3">
-            Email
+          Description
         </th>
         <th scope="col" class="px-6 py-3">
-            Phone Number
+          Date
         </th>
         <th scope="col" class="px-6 py-3">
-            Citizen Number
-        </th>
-        <th scope="col" class="px-6 py-3">
-            Speciality
-        </th>
-        <th scope="col" class="px-6 py-3">
-            Created At
-        </th>
-        <th scope="col" class="px-6 py-3">
-            Modified At
-        </th>
-        <th scope="col" class="px-6 py-3">
-            Action
+          Time
         </th>
       </tr>
     </thead>
     <tbody>
-      {% for dentist in dentists %}
+      {% for appointment in appointments %}
       <tr class="bg-white border-b">
           <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
-              {{ dentist.get_full_name }}
+              {{ appointment.get_full_name }}
           </th>
           <td class="px-6 py-4">
-            {{ dentist.email }}
+            {{ appointment.email }}
           </td>
           <td class="px-6 py-4">
             {{ dentist.phone_number }}

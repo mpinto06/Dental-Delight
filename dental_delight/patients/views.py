@@ -45,7 +45,7 @@ def patients_edit(request, pk):
         form = AddPatientForm(request.POST, instance=patient)
 
         if form.is_valid():
-            patient.save()
+            form.save()
 
             messages.success(request, 'The Patient was edited successfully')
             

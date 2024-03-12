@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
     <head>
@@ -12,6 +13,7 @@
                 <a href="{% url 'home' %}" class="px-6 text-xl font-light text-gray-100 hover:opacity-60">Home</a>
                 <a href="{% url 'patients:list' %}" class="px-6 text-xl font-light text-gray-100 hover:opacity-60">Patients</a>
                 <a href="{% url 'dentists:list' %}" class="px-6 text-xl font-light text-gray-100 hover:opacity-60">Dentists</a>
+                <a href="{% url 'appointments:list' %}" class="px-6 text-xl font-light text-gray-100 hover:opacity-60">Appointments</a>
             </div>
             <div class="space-x-2">
                 <a href="{% url 'account_logout' %}" class="py-3 px-6 text-xl text-white transition duration-300 hover:text-gray-400"><i class="fa-solid fa-right-from-bracket"></i></a>
@@ -29,5 +31,11 @@
             {% block content %}
             {% endblock %}
         </div>
+        <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+        <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+        <script src="https://cdn.datatables.net/1.13.4/js/dataTables.bootstrap5.min.js"></script>
+        <script src="https://cdn.datatables.net/responsive/2.4.1/js/dataTables.responsive.min.js"></script>
+        <script src="https://cdn.datatables.net/responsive/2.4.1/js/responsive.bootstrap5.min.js"></script>
+        <script src="{% static 'js/table.js' %}"></script> 
     </body>
 </html>
