@@ -3,7 +3,7 @@
 {% block content %}
 <div class="bg-white overflow-hidden shadow rounded-lg border w-2/3">
     <div class="px-8 py-5 ">
-        <h3 class="text-lg font-medium text-gray-900">
+        <h3 class="text-3xl font-medium text-gray-900">
             {{ patient.get_full_name }}
         </h3>
     </div>
@@ -57,7 +57,7 @@
                     {{ patient.created_at }}
                 </dd>
             </div>
-            <div class="py-3 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+            <div class="mb-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                 <dt class="text-sm font-medium text-gray-500">
                     Modified At 
                 </dt>
@@ -66,6 +66,7 @@
                 </dd>
             </div>      
             <a href= "{% url 'patients:edit' patient.id %}" class="ml-5 px-5 py-2 text-white bg-sky-600 hover:bg-sky-700 font-medium text-sm rounded-lg text-center">Edit</a>
+            <a href= "{% url 'appointments:add' patient.id %}" class="ml-5 px-5 py-2 text-white bg-sky-600 hover:bg-sky-700 font-medium text-sm rounded-lg text-center">Schedule Appointment</a>
             <a href= "{% url 'patients:delete' patient.id %}" class="ml-5 px-5 py-2 text-white bg-red-600 hover:bg-red-700 font-medium text-sm rounded-lg text-center">Delete</a>
         </dl>
     </div>

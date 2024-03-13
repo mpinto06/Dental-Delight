@@ -19,6 +19,7 @@ from django.urls import path, include
 from core.views import index
 from django.conf.urls.i18n import i18n_patterns
 
+#TODO: Add multi language functionality
 urlpatterns = i18n_patterns(
     path('admin/', admin.site.urls),
     path('users/', include('authuser.urls')),

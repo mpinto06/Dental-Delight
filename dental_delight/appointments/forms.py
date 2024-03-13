@@ -10,7 +10,14 @@ class AddAppointmentForm(forms.ModelForm):
     date = forms.DateField(
         label=_('Date'),
         widget=forms.DateInput(
-            attrs={"type": "text", "placeholder": _("Select date"), "datepicker-format": "mm/dd/yyyy" }
+            attrs={"type": "date", "placeholder": _("Select date"), "datepicker-format": "mm/dd/yyyy" }
+        )
+    )
+
+    time = forms.TimeField(
+        label=('Time'),
+        widget=forms.TimeInput(
+            attrs={"type": "time", "placeholder": _("Select time") }
         )
     )
         
